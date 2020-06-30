@@ -2,6 +2,9 @@
 .vscode/**
 .vscode
 
+# Releases
+v*
+
 # Logs
 **/logs
 *.log
