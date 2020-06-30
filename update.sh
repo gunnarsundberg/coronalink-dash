@@ -17,5 +17,5 @@ cd $NAME/covid-tracker-dashboard-master
 npm install
 npm run build
 cd ../..
-ln -sfn ~/covid-tracker-dashboard/$NAME/covid-tracker-dashboard-master/ /current-build
+ln -sfn ~/covid-tracker-dashboard/$NAME/covid-tracker-dashboard-master/ current-build
 pm2 reload covid-tracker-dashboard
