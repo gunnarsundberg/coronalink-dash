@@ -16,7 +16,7 @@ export default {
   },
 
   async asyncData () {
-    const data = await axios.get("https://raw.githubusercontent.com/gunnarsundberg/covid-tracker/master/frontend/md_content/api.md")
+    const data = await axios.get("https://raw.githubusercontent.com/gunnarsundberg/covid-tracker-dashboard/master/md_content/api.md")
     return {mdFile: data.data}
   }
 }

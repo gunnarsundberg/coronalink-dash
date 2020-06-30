@@ -17,7 +17,7 @@ export default {
     VueMarkdown
   },
   async asyncData () {
-    const data = await axios.get("https://raw.githubusercontent.com/gunnarsundberg/covid-tracker/master/frontend/md_content/data.md")
+    const data = await axios.get("https://raw.githubusercontent.com/gunnarsundberg/covid-tracker-dashboard/master/md_content/data.md")
     return {mdFile: data.data}
   }
 }
