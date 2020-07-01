@@ -46,9 +46,9 @@ export default {
 
         /* Import outbreak data for a state (given in params). This is called each time a state is selected. */
         async updateStateData () {
-            const stateDailyRequest = await axios.get('http://161.35.60.204/api/v1/outbreak/daily/states?state=' + this.currentState)
-            const stateCumulativeRequest = await axios.get('http://161.35.60.204/api/v1/outbreak/cumulative/states?state=' + this.currentState)
-            const stateDemographics = await axios.get('http://161.35.60.204/api/v1/demographics/states?state=' + this.currentState)
+            const stateDailyRequest = await axios.get(process.env.API_URL + process.env.API_PREFIX + 'outbreak/daily/states?state=' + this.currentState)
+            const stateCumulativeRequest = await axios.get(process.env.API_URL + process.env.API_PREFIX + 'outbreak/cumulative/states?state=' + this.currentState)
+            const stateDemographics = await axios.get(process.env.API_URL + process.env.API_PREFIX + 'demographics/states?state=' + this.currentState)
             
             this.stateDailyData = stateDailyRequest.data
             this.stateCumulativeData = stateCumulativeRequest.data

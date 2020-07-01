@@ -83,7 +83,7 @@ export default {
 
     methods: {
         async getStates () {
-            const statesRequest = await axios.get('http://161.35.60.204/api/v1/regions/states')
+            const statesRequest = await axios.get(process.env.API_URL + process.env.API_PREFIX + 'regions/states')
             this.states = statesRequest.data
         }
     },
@@ -101,6 +101,14 @@ export default {
         font-family: 'Open Sans'!important;
         font-weight: lighter!important;
         background: white!important;
+    }
+
+    .leaflet-top, .leaflet-right {
+        z-index: 900!important;
+    }
+
+    .leaflet-bottom, .leaflet-left {
+        z-index: 900!important;
     }
 
     b {

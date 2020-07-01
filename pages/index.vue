@@ -49,8 +49,9 @@ export default {
   
   /* Initial import for national outbreak data. Called before initial page load. */
   async asyncData () {
-      const stateCumulative = await axios.get('http://161.35.60.204/api/v1/outbreak/cumulative/states')
-      const states = await axios.get('http://161.35.60.204/api/v1/regions/states')
+      console.log (process.env.API_URL + process.env.API_PREFIX)
+      const stateCumulative = await axios.get(process.env.API_URL + process.env.API_PREFIX + 'outbreak/cumulative/states')
+      const states = await axios.get(process.env.API_URL + process.env.API_PREFIX + 'regions/states')
       const nationalCumulative = await axios.get('https://covidtracking.com/api/v1/us/daily.json')
       return {stateCumulative: stateCumulative.data, states: states.data, nationalCumulative: nationalCumulative.data}
   },
