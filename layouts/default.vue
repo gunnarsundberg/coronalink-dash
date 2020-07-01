@@ -27,7 +27,41 @@
       <nuxt />
       <div class="bg-dark text-white">
         <div class="py-5">
-          
+          <b-container class="text-center">
+            <b-row align-v="center">
+              <b-col>
+                <b-row class="pb-3">
+                  <b-col align-h="center" class="px-5">
+                    <img src="https://floridapoly.edu/_resources/assets/icons/svg/logo.svg">
+                  </b-col>
+                </b-row>
+                <b-row class="py-3 px-3">
+                  <b-col>
+                    <nuxt-link to="/" class="footer-link">
+                      Home
+                    </nuxt-link>
+                  </b-col>
+                  <b-col>
+                    <nuxt-link to="/data" class="footer-link">
+                      Data
+                    </nuxt-link>
+                  </b-col>
+                  <b-col>
+                    <nuxt-link to="/api" class="footer-link">
+                      API
+                    </nuxt-link>
+                  </b-col>
+                  <div class="d-lg-none d-md d-sm py-md-3 py-xs-3 py-sm-3 w-100"></div>
+                  <b-col>
+                    <a class="footer-link" target="blank" href="https://floridapoly.edu">Florida Poly Website</a>
+                  </b-col>
+                  <b-col>
+                    <a class="footer-link" target="blank" href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">CDC Guidelines</a>
+                  </b-col>
+                </b-row>
+              </b-col>
+            </b-row>
+          </b-container>
         </div>
     </div>
   </div>
@@ -37,23 +71,31 @@
   .bm-burger-bars {
       background-color: white !important;
     }
+
   .line-style {
       position: absolute;
       height: 10% !important;
       left: 0;
       right: 0;
   }
+
   .bm-item-list > * > span {
       margin-left: 10px;
       font-weight: 700;
       color: white !important;
   }
+
   .bm-menu {
     background-color: #343a40 !important;
   } 
+
   .nav-link {
     color: white !important;
     font-weight: bolder;
+  }
+
+  .footer-link {
+    color: white;
   }
   .header {
     font-family: 'Miriam Libre', sans-serif;
