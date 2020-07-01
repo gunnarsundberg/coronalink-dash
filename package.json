@@ -1,7 +1,7 @@
 {
   "name": "covid-tracker",
-  "version": "1.0.0",
-  "description": "Frontend for Florida Poly Covid-19 tracking application",
+  "version": "0.0.1",
+  "description": "Frontend for Florida Poly COVID-19 tracking application",
   "author": "Gunnar Sundberg",
   "private": true,
   "scripts": {
