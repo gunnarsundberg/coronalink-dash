@@ -12,6 +12,7 @@ wget https://github.com/gunnarsundberg/covid-tracker-dashboard/archive/master.zi
 
 unzip master.zip -d $NAME
 rm master.zip
+cp .env $NAME/covid-tracker-dashboard-master
 
 cd $NAME/covid-tracker-dashboard-master
 npm install
