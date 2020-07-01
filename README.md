@@ -1,5 +1,6 @@
 # covid-tracker-dashboard
-Dashboard created using the data from covid-tracker
+
+Dashboard created using the data from [covid-tracker](https://covidtracking.com).
 
 ## Build Setup
 
@@ -16,4 +17,4 @@ $ npm run start
 
 # generate static project
 $ npm run generate
-``
+```
