@@ -1,3 +1,4 @@
+require('dotenv').config()
 
 export default {
   mode: 'universal',
@@ -53,18 +54,21 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/proxy',
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
+ 
   axios: {
     proxy: true // Can be also an object with default options
   },
 
   proxy: {
-    '/api/': 'http://127.0.0.1:8000/api/'
+    '/api': { target: process.env.API_ADDRESS, pathRewrite: {'^/api': '/api/v1'} }
   },
+  
   /*
   ** Build configuration
   */
@@ -74,5 +78,5 @@ export default {
     */
     extend (config, ctx) {
     }
-  }
+  },
 }

@@ -20,7 +20,6 @@
 import StateView from '~/components/StateView.vue'
 import NationalView from '~/components/NationalView.vue'
 import { findObject } from '~/mixins/helper.js'
-import axios from 'axios'
 
 export default {
   components: {
@@ -48,11 +47,10 @@ export default {
   },
   
   /* Initial import for national outbreak data. Called before initial page load. */
-  async asyncData () {
-      console.log (process.env.API_URL + process.env.API_PREFIX)
-      const stateCumulative = await axios.get(process.env.API_URL + process.env.API_PREFIX + 'outbreak/cumulative/states')
-      const states = await axios.get(process.env.API_URL + process.env.API_PREFIX + 'regions/states')
-      const nationalCumulative = await axios.get('https://covidtracking.com/api/v1/us/daily.json')
+  async asyncData ({ $axios }) {
+      const stateCumulative = await $axios.get('/api/outbreak/cumulative/states')
+      const states = await $axios.get('/api/regions/states')
+      const nationalCumulative = await $axios.get('https://covidtracking.com/api/v1/us/daily.json')
       return {stateCumulative: stateCumulative.data, states: states.data, nationalCumulative: nationalCumulative.data}
   },
   

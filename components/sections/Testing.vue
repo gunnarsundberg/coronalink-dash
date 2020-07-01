@@ -41,7 +41,6 @@
 import {numberWithCommas, compareTests, compareWeighted, findObject, getObjectRank, ordinalSuffixOf, caseChartData, testingChartData} from '~/mixins/helper.js'
 import NumericDataCard from '~/components/cards/reporting/NumericDataCard.vue'
 import ColumnChartCard from '~/components/cards/visualizations/ColumnChartCard.vue'
-import axios from 'axios'
 
 export default {
     props: {
@@ -186,8 +185,8 @@ export default {
         },
 
         async getStateData () {
-            const stateDemographicsRequest = await axios.get('http://161.35.60.204/api/v1/demographics/states')
-            const allStatesCumulativeRequest = await axios.get('http://161.35.60.204/api/v1/outbreak/cumulative/states')
+            const stateDemographicsRequest = await this.$axios.get('/api/v1/demographics/states')
+            const allStatesCumulativeRequest = await this.$axios.get('/api/v1/outbreak/cumulative/states')
             this.stateDemographics = stateDemographicsRequest.data
             this.allStatesCumulative = allStatesCumulativeRequest.data
         },

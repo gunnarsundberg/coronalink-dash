@@ -12,7 +12,6 @@
 import StateOverview from '~/components/sections/StateOverview.vue'
 import StateFastFacts from '~/components/sections/StateFastFacts.vue'
 import StateProgression from '~/components/sections/StateProgression.vue'
-import axios from 'axios'
 
 export default {
     components: {
@@ -46,9 +45,9 @@ export default {
 
         /* Import outbreak data for a state (given in params). This is called each time a state is selected. */
         async updateStateData () {
-            const stateDailyRequest = await axios.get(process.env.API_URL + process.env.API_PREFIX + 'outbreak/daily/states?state=' + this.currentState)
-            const stateCumulativeRequest = await axios.get(process.env.API_URL + process.env.API_PREFIX + 'outbreak/cumulative/states?state=' + this.currentState)
-            const stateDemographics = await axios.get(process.env.API_URL + process.env.API_PREFIX + 'demographics/states?state=' + this.currentState)
+            const stateDailyRequest = await this.$axios.get('/api/outbreak/daily/states?state=' + this.currentState)
+            const stateCumulativeRequest = await this.$axios.get('/api/outbreak/cumulative/states?state=' + this.currentState)
+            const stateDemographics = await this.$axios.get('/api/demographics/states?state=' + this.currentState)
             
             this.stateDailyData = stateDailyRequest.data
             this.stateCumulativeData = stateCumulativeRequest.data

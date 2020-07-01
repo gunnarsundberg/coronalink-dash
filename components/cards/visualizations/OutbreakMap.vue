@@ -40,7 +40,6 @@
 import {findObject} from '~/mixins/helper.js'
 import usGeoJSON from '~/assets/usStates.json'
 import Loading from '~/components/Loading.vue'
-import axios from 'axios'
 
 export default {
     props: {
@@ -83,7 +82,7 @@ export default {
 
     methods: {
         async getStates () {
-            const statesRequest = await axios.get(process.env.API_URL + process.env.API_PREFIX + 'regions/states')
+            const statesRequest = await this.$axios.get('/api/regions/states')
             this.states = statesRequest.data
         }
     },
