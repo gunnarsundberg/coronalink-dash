@@ -1,6 +1,3 @@
-# API Documentation
-Welcome to our API documentation! Our data was created with research in mind, but is totally open and available to anyone. We want to make our data as accessible as possible. If you have any issues or questions, please feel free to reach out to us. The best way to get in touch is through the issues section of our github. We have a repository for [the backend and API](https://github.com/gunnarsundberg/covid-tracker) and a separate repository for [the web app](https://github.com/gunnarsundberg/covid-tracker-dashboard). Learn more about our policies, data, and usage below.
-
 # Overview
 Our API provides several endpoints with differing options and parameters. Currently we offer the `outbreak`, `distancing`, `demographics`, `weather`, `flights`, and `regions` endpoints. 
 
@@ -89,20 +86,18 @@ date_of_outbreak: UTC date format ("YYYY-MM-DD")
 
 #### Region Type Path Parameters
 
-#### `/states`
+##### `/states`
 Data under the `/states` region parameter shows data at the state level.
 
-##### Additional Response Fields
+###### Additional Response Fields
 Data under the `/states` region parameter add the following fields to the response:
 
 `state:` `string` - US State Abbreviation
  
 
-##### Query Parameters
+###### Query Parameters
 * `state`
 * `date`
-
-### Examples
 
 ## `distancing` Endpoint
 The distancing endpoint contains information related to policies aimed at increasing social distancing and reducing virus spread. Currently, we have data on stay at home orders and school closures.
@@ -129,21 +124,18 @@ Records under the `/stayinplace` path parameter indicate regional stay in place 
 
 #### Region Type Path Parameters
 
-#### `/states`
+##### `/states`
 Data under the `/states` region parameter shows data at the state level.
 
-##### Additional Response Fields
+###### Additional Response Fields
 Data under the `/states` region parameter add the following fields to the response:
 
 `state:` `string` - US State Abbreviation
  
 
-##### Query Parameters
+###### Query Parameters
 * `state`
 * `date`
-
-
-### Examples
 
 ## `demographics` Endpoint
 Demographic data compiled from the US Census Bureau’s American Community Survey 5-Year, 2014-2018.
@@ -166,15 +158,15 @@ Path parameters follow the pattern:
  
 #### Region Type Path Parameters
 
-#### `/states`
+##### `/states`
 Data under the `/states` region parameter shows data at the state level.
 
-##### Additional Response Fields
+###### Additional Response Fields
 Data under the `/states` region parameter add the following fields to the response:
 
 `state:` `string` - US State Abbreviation
 
-##### Query Parameters
+###### Query Parameters
 * `state`
 
 ## `weather` Endpoint
@@ -201,15 +193,15 @@ uv_index: float
 
 #### Region Type Path Parameters
 
-#### `/states`
+##### `/states`
 Data under the `/states` region parameter shows data at the state level. It is worth noting that state-level weather doesn't truly exist. Rather, these are averages of measurements from each county within a state.
 
-##### Additional Response Fields
+###### Additional Response Fields
 Data under the `/states` region parameter add the following fields to the response:
 
 `state:` `string` - US State Abbreviation
 
-##### Query Parameters
+###### Query Parameters
 * `state`
 * `date`
 
@@ -234,15 +226,15 @@ number_of_outbound_flights: int
 
 #### Region Type Path Parameters
 
-#### `/states`
+##### `/states`
 Data under the `/states` region parameter shows data at the state level.
 
-##### Additional Response Fields
+###### Additional Response Fields
 Data under the `/states` region parameter add the following fields to the response:
 
 `state:` `string` - US State Abbreviation
 
-##### Query Parameters
+###### Query Parameters
 * `state`
 * `date`
 
@@ -261,10 +253,10 @@ Path parameters follow the pattern:
  
 #### Region Type Path Parameters
 
-#### `/states`
+##### `/states`
 Data under the `/states` region parameter shows data at the state level.
 
-##### Additional Response Fields
+###### Additional Response Fields
 Data under the `/states` region parameter add the following fields to the response:
 
 `code:` `string` - US State Abbreviation
