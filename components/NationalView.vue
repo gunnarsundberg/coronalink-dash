@@ -57,10 +57,6 @@ import OutbreakMap from '~/components/cards/visualizations/OutbreakMap.vue'
 
 export default {
   props: {
-   nationalCumulative: {
-    type: Array,
-    required: true
-   },
    stateCumulative: {
      type: Array,
      required: true
@@ -74,6 +70,10 @@ export default {
   },
 
   computed: {
+    nationalCumulative () {
+      return this.$store.state.nationalcumulative.list
+    },
+
     sortedNationalOutbreak: function () {
       return this.stateCumulative.sort(compareCases).slice(0, 5)
     },
