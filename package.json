@@ -11,23 +11,26 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.10.3",
+    "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "@types/leaflet": "^1.5.15",
     "babel-runtime": "^6.26.0",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
     "chart.js": "^2.9.3",
     "jquery": "^3.5.1",
-    "nuxt": "^2.0.0",
-    "nuxt-start": "^2.12.2",
+    "nuxt": "^2.13.3",
+    "nuxt-start": "^2.13.3",
     "package.json": "^2.0.1",
     "v-selectmenu": "^2.0.2",
     "vue-burger-menu": "^2.0.5",
     "vue-chartkick": "^0.6.0",
     "vue-choropleth": "^0.3.1",
     "vue-markdown": "^2.2.4",
+    "vue-router": "^3.3.4",
     "vue2-leaflet": "^2.5.2",
-    "vuesax": "^3.11.15"
+    "vuesax": "^3.11.17",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1"
