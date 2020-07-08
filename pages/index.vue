@@ -2,15 +2,28 @@
   <div class="mx-0 my-0 px-0" style="background: #f6f5f3;">
     <div class="px-4 pt-5">
       <div class="px-4">
-        <h3 class="px-lg-5">{{ currentRegionStr }} Overview</h3>
-        <div class="row justify-content-between px-lg-5">
-          <p class="text-muted px-3">Data from {{ newestDate }}</p>
-          <v-selectmenu :data="menu" :query="true" language="en" type="advanced" key-field="code" show-field="name" align="right" class="px-3" :title="title" v-model="currentRegion"></v-selectmenu>
-        </div>
+        <b-row align-h="between" class="px-lg-5">
+          <b-col cols="auto">
+            <h3>{{ currentRegionStr }} Overview</h3>
+            <p class="text-muted">Data from {{ newestDate }}</p>
+          </b-col>
+          <b-col cols="auto" class="pt-2">
+            <b-alert
+              :show="dismissCountDown"
+              dismissible
+              variant="info"
+              @dismissed="dismissCountDown=0"
+              @dismiss-count-down="countDownChanged"
+            >
+              <b-icon-arrow-down></b-icon-arrow-down> Tip: click to change view
+            </b-alert>
+            <v-selectmenu :data="menu" :query="true" language="en" type="advanced" key-field="code" show-field="name" align="right" :title="title" v-model="currentRegion"></v-selectmenu>
+          </b-col>
+        </b-row>
       </div>
     </div>
     <div>
-      <NationalView v-if="currentRegion == 'US'" :nationalCumulative="nationalCumulative" :stateCumulative="stateCumulative"></NationalView>
+      <NationalView v-if="currentRegion == 'US'" :stateCumulative="stateCumulative"></NationalView>
       <StateView v-if="isState(states,currentRegion)" :currentState="currentRegion" :currentStateStr="currentRegionStr"></StateView>
     </div>
   </div>
@@ -20,11 +33,13 @@
 import StateView from '~/components/StateView.vue'
 import NationalView from '~/components/NationalView.vue'
 import { findObject } from '~/mixins/helper.js'
+import { BIconArrowDown } from 'bootstrap-vue'
 
 export default {
   components: {
     StateView,
-    NationalView
+    NationalView,
+    BIconArrowDown
   },
 
   data() {
@@ -42,24 +57,33 @@ export default {
           title: 'State',
           list: []
         }
-      ]
+      ],
+
+      dismissSecs: 3,
+      dismissCountDown: 0
     }
   },
   
   /* Initial import for national outbreak data. Called before initial page load. */
   async asyncData ({ $axios }) {
-      const stateCumulative = await $axios.get('/api/outbreak/cumulative/states')
-      const states = await $axios.get('/api/regions/states')
-      const nationalCumulative = await $axios.get('https://covidtracking.com/api/v1/us/daily.json')
-      return {stateCumulative: stateCumulative.data, states: states.data, nationalCumulative: nationalCumulative.data}
+    $axios.setToken(process.env.AUTH_TOKEN, 'Token')
+
+    const stateCumulative = await $axios.get('/api/outbreak/cumulative/states')
+    const states = await $axios.get('/api/regions/states')
+    
+    return {stateCumulative: stateCumulative.data, states: states.data}
   },
   
   computed: {
-    newestDate: function () {
+    nationalCumulative () {
+      return this.$store.state.nationalcumulative.list
+    },
+
+    newestDate () {
       return this.stateCumulative[0]['date']
     },
 
-    currentRegionStr: function () {
+    currentRegionStr () {
       if (this.currentRegion == 'US') {
         return this.currentRegion
       }
@@ -71,6 +95,14 @@ export default {
   },
 
   methods: {
+    countDownChanged(dismissCountDown) {
+      this.dismissCountDown = dismissCountDown
+    },
+
+    showAlert() {
+      this.dismissCountDown = this.dismissSecs
+    },
+
     getMenuStates: function (states) {
       var newStateMenu = []
       for (var i=0; i < states.length; i++) {
@@ -88,12 +120,14 @@ export default {
       return obj != null
     }
   },
-
-  mounted: function () {
-    this.getMenuStates(this.states)
-  }
+  
+  created: function () {
+    this.showAlert()
+  },
 }
 </script>
 <style>
-  
+  .sm-default-btn {
+    font-size: 1.25rem!important;
+  }
 </style>
