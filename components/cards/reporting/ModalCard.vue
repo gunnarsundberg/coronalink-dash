@@ -1,5 +1,5 @@
 <template>
-    <b-card class="shadow" :title="title">
+    <b-card class="shadow" :title="title" data-aos="slide-up">
         <b-card-text align="center" class="py-5">
             <h1>{{ data }}</h1>
         </b-card-text>

@@ -1,5 +1,5 @@
 <template>
-    <b-card :title="title" class="shadow">
+    <b-card :title="title" class="shadow" data-aos="slide-up">
         <div class="card-body px-0">
             <line-chart :data="data" height="150px" :colors="colors"></line-chart>
         </div>

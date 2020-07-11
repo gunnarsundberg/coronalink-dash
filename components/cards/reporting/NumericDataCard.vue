@@ -1,5 +1,5 @@
 <template>
-    <b-card :title="title" class="shadow" align="center" align-v="center">
+    <b-card :title="title" class="shadow" align="center" align-v="center" data-aos="slide-up">
         <b-card-text align-middle>
             <h1 v-if="data" class="py-5">{{ data}}</h1>
             <loading v-else></loading>

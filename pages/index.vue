@@ -7,7 +7,7 @@
             <h3>{{ currentRegionStr }} Overview</h3>
             <p class="text-muted">Data from {{ newestDate }}</p>
           </b-col>
-          <b-col cols="auto" class="pt-2">
+          <b-col cols="auto" class="pt-2 text-right">
             <b-alert
               :show="dismissCountDown"
               dismissible

@@ -9,7 +9,7 @@
           <numeric-data-card :data="cumulativeDeaths" title="Cumulative Deaths"></numeric-data-card>
         </b-card-group>
         <b-card-group deck class="pt-3">
-            <b-card title="Top States by Cases" class="col-xl-4 shadow order-md-2 order-sm-2">
+            <b-card title="Top States by Cases" class="col-xl-4 shadow order-md-2 order-sm-2" data-aos="slide-up">
               <div class="card-body">
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">
@@ -36,7 +36,7 @@
               </div>
             </b-card>
             
-            <b-card title="Outbreak Map" class="shadow col-xl-8">
+            <b-card title="Outbreak Map" class="shadow col-xl-8" data-aos="slide-up">
               <div class="px-sm-0 mx-sm-0">
                 <outbreak-map :stateCumulativeData="stateCumulative" class="px-sm-0 mx-sm-0"></outbreak-map>
               </div>

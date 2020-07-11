@@ -7,11 +7,11 @@
             <div v-if="stateCumulativeData && stateDailyData && stateCumulativeHistoric && allStatesCumulativeHistoric">
                 <div class="px-xl-5">
                     <div class="px-md-5 py-5" align="center">
-                        <line-chart v-if="stateCumulativeHistoric" :data="getChartData()" :points="false" :colors="['#2a35c9', '#ababab']" ytitle="Total Cases"></line-chart>
+                        <line-chart v-if="stateCumulativeHistoric" :data="getChartData()" :points="false" :colors="['#2a35c9', '#ababab']" ytitle="Total Cases" data-aos="zoom-in"></line-chart>
                         <loading v-else></loading>
                     </div>
                 </div>
-                <div>
+                <div data-aos="slide-up">
                     <p>{{ currentStateStr }} first reached 100 cases on {{ displayDate(dateOfOutbreak) }}, becoming the  {{ outbreakDateRank }} state to do so. {{ schoolClosureDescription }} {{ stayAtHomeDescription }}</p>
                 </div>
             </div>

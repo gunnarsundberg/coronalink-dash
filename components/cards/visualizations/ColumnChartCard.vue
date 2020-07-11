@@ -1,5 +1,5 @@
 <template>
-    <b-card class="shadow" :title="title">
+    <b-card class="shadow" :title="title" data-aos="slide-up">
         <div class="card-body px-0">
             <column-chart v-if="data" :data="data" min="0" :library="{scales: {xAxes: [{ticks: {display: false}}]}}" :label="false" height="150px" :stacked="stacked" :colors="colors" :discrete="discrete"></column-chart>
             <loading v-else></loading>

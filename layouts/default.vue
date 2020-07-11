@@ -67,7 +67,18 @@
   </div>
 </template>
 
+<script>
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
+export default {
+  mounted: function () {
+    AOS.init()
+  }
+}
+</script>
 <style>
+
   .bm-burger-bars {
       background-color: white !important;
     }
