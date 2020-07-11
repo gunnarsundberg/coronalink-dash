@@ -123,6 +123,7 @@ export default {
   
   created: function () {
     this.showAlert()
+    this.getMenuStates(this.states)
   },
 }
 </script>
